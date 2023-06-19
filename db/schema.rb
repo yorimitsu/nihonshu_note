@@ -33,7 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_144016) do
   end
 
   create_table "sakes", force: :cascade do |t|
-    t.string "name", comment: "銘柄"
+    t.string "name", comment: "名称"
+    t.string "brand", comment: "銘柄"
     t.string "brewery", comment: "蔵元"
     t.string "classification", comment: "特定名称・分類"
     t.string "main_rice", comment: "主使用米"

@@ -1,7 +1,8 @@
 class CreateSakes < ActiveRecord::Migration[7.0]
   def change
     create_table :sakes do |t|
-      t.string :name, comment: "銘柄"
+      t.string :name, comment: "名称"
+      t.string :brand, comment: "銘柄"
       t.string :brewery, comment: "蔵元"
       t.string :classification, comment: "特定名称・分類"
       t.string :main_rice, comment: "主使用米"
