@@ -29,7 +29,7 @@ root.render(
   <ApolloProvider client={client}>
   <App />
   </ApolloProvider>
- );
+);
 
 // const container = document.getElementById('root');
 // const root = createRoot(container);
