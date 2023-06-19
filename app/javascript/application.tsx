@@ -30,10 +30,3 @@ root.render(
   <App />
   </ApolloProvider>
 );
-
-// const container = document.getElementById('root');
-// const root = createRoot(container);
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   root.render(<HelloMessage name="World" />);
-// });
