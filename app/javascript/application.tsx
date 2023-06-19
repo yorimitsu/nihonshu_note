@@ -28,8 +28,7 @@ const root = createRoot(
 root.render(
   <ApolloProvider client={client}>
   <App />
-  </ApolloProvider>,
-  document.getElementById("root")
+  </ApolloProvider>
  );
 
 // const container = document.getElementById('root');
