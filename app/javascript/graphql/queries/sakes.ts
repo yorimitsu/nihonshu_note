@@ -5,7 +5,16 @@ export default gql`
     sakes {
       id
       name
+      brand
+      brewery
       classification
+      mainRice
+      ricePolishingRatio
+      alcoholContent
+      acidity
+      sakeMeterValue
+      flavorProfile
+      description
     }
   }
 `;

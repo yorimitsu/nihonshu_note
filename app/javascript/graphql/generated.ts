@@ -53,7 +53,7 @@ export type Sake = {
 export type SakesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type SakesQuery = { __typename?: 'Query', sakes: Array<{ __typename?: 'Sake', id: string, name?: string | null, classification?: string | null }> };
+export type SakesQuery = { __typename?: 'Query', sakes: Array<{ __typename?: 'Sake', id: string, name?: string | null, brand?: string | null, brewery?: string | null, classification?: string | null, mainRice?: string | null, ricePolishingRatio?: string | null, alcoholContent?: string | null, acidity?: string | null, sakeMeterValue?: string | null, flavorProfile?: string | null, description?: string | null }> };
 
 
 export const SakesDocument = gql`
@@ -61,7 +61,16 @@ export const SakesDocument = gql`
   sakes {
     id
     name
+    brand
+    brewery
     classification
+    mainRice
+    ricePolishingRatio
+    alcoholContent
+    acidity
+    sakeMeterValue
+    flavorProfile
+    description
   }
 }
     `;

@@ -1,15 +1,14 @@
 import React from 'react';
-import { useSakesQuery } from "../graphql/generated";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import SakeList from './SakeList';
 
 function App() {
-  const { data: { sakes = [] } = {} } = useSakesQuery();
-
   return (
-    <div>
-      {sakes.map((sake) => (
-        <div key={sake.id}>{sake.name}</div>
-      ))}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<SakeList />} />
+      </Routes>
+    </Router>
   );
 }
 
