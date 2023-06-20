@@ -50,12 +50,65 @@ export type Sake = {
   sakeMeterValue?: Maybe<Scalars['String']['output']>;
 };
 
+export type SakeQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type SakeQuery = { __typename?: 'Query', sake: { __typename?: 'Sake', id: string, name?: string | null, brand?: string | null, brewery?: string | null, classification?: string | null, mainRice?: string | null, ricePolishingRatio?: string | null, alcoholContent?: string | null, acidity?: string | null, sakeMeterValue?: string | null, flavorProfile?: string | null, description?: string | null } };
+
 export type SakesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SakesQuery = { __typename?: 'Query', sakes: Array<{ __typename?: 'Sake', id: string, name?: string | null, brand?: string | null, brewery?: string | null, classification?: string | null, mainRice?: string | null, ricePolishingRatio?: string | null, alcoholContent?: string | null, acidity?: string | null, sakeMeterValue?: string | null, flavorProfile?: string | null, description?: string | null }> };
 
 
+export const SakeDocument = gql`
+    query sake($id: ID!) {
+  sake(id: $id) {
+    id
+    name
+    brand
+    brewery
+    classification
+    mainRice
+    ricePolishingRatio
+    alcoholContent
+    acidity
+    sakeMeterValue
+    flavorProfile
+    description
+  }
+}
+    `;
+
+/**
+ * __useSakeQuery__
+ *
+ * To run a query within a React component, call `useSakeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSakeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSakeQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useSakeQuery(baseOptions: Apollo.QueryHookOptions<SakeQuery, SakeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<SakeQuery, SakeQueryVariables>(SakeDocument, options);
+      }
+export function useSakeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SakeQuery, SakeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<SakeQuery, SakeQueryVariables>(SakeDocument, options);
+        }
+export type SakeQueryHookResult = ReturnType<typeof useSakeQuery>;
+export type SakeLazyQueryHookResult = ReturnType<typeof useSakeLazyQuery>;
+export type SakeQueryResult = Apollo.QueryResult<SakeQuery, SakeQueryVariables>;
 export const SakesDocument = gql`
     query sakes {
   sakes {
