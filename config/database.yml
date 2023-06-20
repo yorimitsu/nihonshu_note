@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: password
+  host: 127.0.0.1
+  port: 5432
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: nihonshu_note_development
+
+
+test:
+  <<: *default
+  database: nihonshu_note_test
+
+production:
+  <<: *default
+  database: nihonshu_note_production
+  username: nihonshu_note
+  password: <%= ENV["NIHONSHU_NOTE_DATABASE_PASSWORD"] %>
