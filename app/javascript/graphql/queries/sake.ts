@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export default gql`
-  query sakes {
-    sakes {
+  query sake($id: ID!) {
+    sake(id: $id) {
       id
       name
       brand
@@ -15,6 +15,11 @@ export default gql`
       sakeMeterValue
       flavorProfile
       description
+      reviews {
+        id
+        comment
+        rating
+      }
     }
   }
 `;

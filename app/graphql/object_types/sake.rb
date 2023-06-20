@@ -13,5 +13,5 @@ class ObjectTypes::Sake < Types::BaseObject
   field :sake_meter_value, String
   field :flavor_profile, String
   field :description, String
-  #field :reviews, [Types::ReviewType]
+  field :reviews, [ObjectTypes::Review]
 end

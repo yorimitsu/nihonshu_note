@@ -5,7 +5,7 @@ module Queries
     type ObjectTypes::Sake, null: false
 
     def resolve(id:)
-      ::Sake.find(id)
+      ::Sake.includes(:reviews).find(id)
     end
   end
 end
