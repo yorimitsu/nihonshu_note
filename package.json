@@ -4,8 +4,12 @@
   "dependencies": {
     "@apollo/client": "^3.7.15",
     "@graphql-codegen/cli": "^4.0.1",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-codegen/typescript-react-query": "^4.1.0",
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.3.0",
+    "@tanstack/react-query": "^4.29.14",
     "esbuild": "^0.18.4",
     "graphql": "^16.6.0",
     "react": "^18.2.0",
@@ -20,6 +24,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "4.0.1",
-    "@graphql-codegen/client-preset": "4.0.1"
+    "@graphql-codegen/client-preset": "4.0.1",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7"
   }
 }

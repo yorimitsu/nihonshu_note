@@ -1,28 +1,12 @@
 import React from 'react';
-import { useQuery, gql } from "@apollo/client";
-
-const FETCH_SAKES = gql`
-  query {
-    sakes {
-      id
-      name
-      classification
-    }
-  }
-`;
-
-interface SAKE {
-  id: string;
-  name: string;
-  classification: string;
-}
+import { useSakesQuery } from "../graphql/generated";
 
 function App() {
-  const { data: { sakes = [] } = {} } = useQuery(FETCH_SAKES);
+  const { data: { sakes = [] } = {} } = useSakesQuery();
 
   return (
     <div>
-      {sakes.map((sake: SAKE) => (
+      {sakes.map((sake) => (
         <div key={sake.id}>{sake.name}</div>
       ))}
     </div>
