@@ -15,6 +15,11 @@ export default gql`
       sakeMeterValue
       flavorProfile
       description
+      reviews {
+        id
+        comment
+        rating
+      }
     }
   }
 `;
