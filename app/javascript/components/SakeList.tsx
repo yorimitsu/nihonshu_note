@@ -23,6 +23,9 @@ const SakeList: React.FC = () => {
           </li>
         ))}
       </ul>
+      <div>
+      <img src='/images/logo.png' alt="" />
+      </div>
     </div>
   );
 };
