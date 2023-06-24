@@ -45,7 +45,7 @@ const ReviewTable: React.FC<Props> = ({ reviews, sakeId }) => {
         <TableBody>
           {reviews?.map((review) => (
             <TableRow key={review.id}>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" style={{ whiteSpace: 'pre-wrap' }}>
                 {review.comment}
               </TableCell>
               <TableCell>
