@@ -6,6 +6,7 @@ import { styled } from '@mui/system';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import Typography from '@mui/material/Typography';
 
 type Props = {
   sakeId: string;
@@ -71,16 +72,18 @@ const ReviewForm: React.FC<Props> = ({ sakeId }) => {
   return (
     <Box sx={{ m: 1 }}>
       <Box sx={{ m: 1 }}>
+        <Typography component="legend">評価</Typography>
+        <Rating name="raiting" value={raiting} onChange={(e, newValue) => setRating(newValue ? newValue : 0)}/>
+      </Box>
+      <Box sx={{ m: 1 }}>
+        <Typography component="legend">コメント</Typography>
         <StyledTextarea
-          minRows={10}
+          minRows={7}
           aria-label="maximum height"
           placeholder="コメントを入力してください"
           defaultValue={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-      </Box>
-      <Box sx={{ m: 1 }}>
-        <Rating name="raiting" value={raiting} onChange={(e, newValue) => setRating(newValue ? newValue : 0)} />
       </Box>
       <Box sx={{ m: 1 }}>
         <Button 
