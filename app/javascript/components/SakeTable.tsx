@@ -14,6 +14,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useSakesQuery, Sake } from "../graphql/generated";
 import ReviewForm from './ReviewForm';
+import Rating from '@mui/material/Rating';
 
 function Row(props: { row: Sake }) {
   const { row } = props;
@@ -59,7 +60,9 @@ function Row(props: { row: Sake }) {
                       <TableCell component="th" scope="row">
                         {review.comment}
                       </TableCell>
-                      <TableCell>{review.rating}</TableCell>
+                      <TableCell>
+                        <Rating name="rating" value={review.rating} readOnly />
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
