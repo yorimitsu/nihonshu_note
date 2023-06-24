@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
@@ -8,13 +7,11 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useSakesQuery, Sake } from "../graphql/generated";
-import ReviewForm from './ReviewForm';
-import Rating from '@mui/material/Rating';
+import ReviewTable from './ReviewTable';
 
 function Row(props: { row: Sake }) {
   const { row } = props;
@@ -35,7 +32,6 @@ function Row(props: { row: Sake }) {
         <TableCell component="th" scope="row">
           {row.name}
         </TableCell>
-        <TableCell align="right">{row.name}</TableCell>
         <TableCell align="right">{row.brand}</TableCell>
         <TableCell align="right">{row.brewery}</TableCell>
         <TableCell align="right">{row.classification}</TableCell>
@@ -43,32 +39,7 @@ function Row(props: { row: Sake }) {
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-                レビュー
-              </Typography>
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>評価</TableCell>
-                    <TableCell>コメント</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {row.reviews?.map((review) => (
-                    <TableRow key={review.id}>
-                      <TableCell component="th" scope="row">
-                        {review.comment}
-                      </TableCell>
-                      <TableCell>
-                        <Rating name="rating" value={review.rating} readOnly />
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-              <ReviewForm sakeId={row.id} />
-            </Box>
+            <ReviewTable reviews={row.reviews ?? []} sakeId={row.id} />
           </Collapse>
         </TableCell>
       </TableRow>
@@ -93,8 +64,7 @@ const SakeTable: React.FC = () => {
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>名称</TableCell>
-            <TableCell align="right">銘柄</TableCell>
+            <TableCell>銘柄</TableCell>
             <TableCell align="right">蔵元</TableCell>
             <TableCell align="right">特定名称・分類</TableCell>
             <TableCell align="right">アルコール度数</TableCell>
