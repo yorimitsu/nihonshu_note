@@ -32,9 +32,10 @@ function Row(props: { row: Sake }) {
         <TableCell component="th" scope="row">
           {row.name}
         </TableCell>
-        <TableCell align="right">{row.brand}</TableCell>
-        <TableCell align="right">{row.brewery}</TableCell>
-        <TableCell align="right">{row.classification}</TableCell>
+        <TableCell>{row.brand}</TableCell>
+        <TableCell>{row.brewery}</TableCell>
+        <TableCell>{row.classification}</TableCell>
+        <TableCell>{row.alcoholContent}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -64,10 +65,11 @@ const SakeTable: React.FC = () => {
         <TableHead>
           <TableRow>
             <TableCell />
+            <TableCell>名称</TableCell>
             <TableCell>銘柄</TableCell>
-            <TableCell align="right">蔵元</TableCell>
-            <TableCell align="right">特定名称・分類</TableCell>
-            <TableCell align="right">アルコール度数</TableCell>
+            <TableCell>蔵元</TableCell>
+            <TableCell>特定名称・分類</TableCell>
+            <TableCell>アルコール度数</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
